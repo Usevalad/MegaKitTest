@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright (c) 2017.
+  ~  Student Vsevolod
+  ~  usevalad.uladzimiravich@gmail.com
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.vsevolod.megakittest.activity.DetailsActivity">
+    <item
+        android:id="@+id/edit"
+        android:icon="@drawable/ic_edit"
+        android:orderInCategory="300"
+        android:title="edit"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/save"
+        android:icon="@drawable/ic_save"
+        android:orderInCategory="300"
+        android:title="save"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/remove"
+        android:icon="@drawable/ic_remove"
+        android:orderInCategory="300"
+        android:title="remove"
+        app:showAsAction="always" />
+</menu>
