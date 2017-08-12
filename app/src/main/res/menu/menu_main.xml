@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.vsevolod.megakittest.activity.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/delete_cars"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/delete_cars"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/delete_drivers"
+        android:orderInCategory="100"
+        android:title="@string/delete_drivers"
         app:showAsAction="never" />
 </menu>
+

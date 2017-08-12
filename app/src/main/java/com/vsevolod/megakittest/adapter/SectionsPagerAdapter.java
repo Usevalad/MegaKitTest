@@ -13,7 +13,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.vsevolod.megakittest.constant.Constants;
+import com.vsevolod.megakittest.R;
+import com.vsevolod.megakittest.application.MyApplication;
 import com.vsevolod.megakittest.fragment.PlaceholderFragment;
 
 /**
@@ -39,14 +40,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    // FIXME: 8/8/17 add to resources
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
-            case Constants.DATA_TYPE_CAR:
-                return "Cars";
-            case Constants.DATA_TYPE_DRIVER:
-                return "Drivers";
+            case 0:
+                return MyApplication.getContext().getString(R.string.cars_title);
+            case 1:
+                return MyApplication.getContext().getString(R.string.drivers_title);
             default:
                 return null;
         }

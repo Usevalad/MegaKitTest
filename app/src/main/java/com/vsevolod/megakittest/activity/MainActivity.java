@@ -21,6 +21,7 @@ import com.vsevolod.megakittest.R;
 import com.vsevolod.megakittest.adapter.SectionsPagerAdapter;
 import com.vsevolod.megakittest.constant.Constants;
 import com.vsevolod.megakittest.constant.IntentKey;
+import com.vsevolod.megakittest.database.DTO;
 import com.vsevolod.megakittest.view.FABView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private FABView mFAB;
 
+    /**
+     * The {@link DTO} data CRUD methods
+     */
+    private DTO mDTO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -66,12 +71,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFAB = new FABView(getWindow().getDecorView());
         mFAB.setOnClickListeners(this);
 
+        mDTO = new DTO();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mFAB.removeOnClickListeners();
+        mDTO.close();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setViewPagerAdapter();
     }
 
     @Override
@@ -86,14 +99,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.delete_cars:
+                mDTO.deleteAllCars();
+                setViewPagerAdapter();
+                return true;
+            case R.id.delete_drivers:
+                mDTO.deleteAllDrivers();
+                setViewPagerAdapter();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -113,10 +130,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Starting new activity depends on data-object type
+     *
+     * @param dataType - The type of the data object to be created
+     */
     private void startNewActivity(int dataType) {
         Class activity = dataType == Constants.DATA_TYPE_CAR ? CarActivity.class : DriverActivity.class;
         Intent intent = new Intent(this, activity);
-        intent.putExtra(IntentKey.ACTION, IntentKey.CREATE);
+        intent.putExtra(IntentKey.ACTION, IntentKey.ACTION_CREATE);
         startActivity(intent);
+    }
+
+    /**
+     * Updates after changes
+     */
+    private void setViewPagerAdapter() {
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 }

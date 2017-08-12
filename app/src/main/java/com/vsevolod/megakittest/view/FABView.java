@@ -17,6 +17,9 @@ import com.vsevolod.megakittest.R;
 /**
  * Created by Student Vsevolod on 8/9/17.
  * usevalad.uladzimiravich@gmail.com
+ * <p>
+ * Contains 3 {@link FloatingActionButton} that triggers activity that
+ * create new data objects
  */
 
 public class FABView {
@@ -29,29 +32,48 @@ public class FABView {
     private Animation mRotateBackward;
     private boolean isFabOpen = false;
 
+    /**
+     * constructor that init views and set animation
+     *
+     * @param rootView - to keep views
+     */
     public FABView(View rootView) {
         Context context = rootView.getContext();
+        //init FABs
         mFAB = (FloatingActionButton) rootView.findViewById(R.id.fab);
         mFABCar = (FloatingActionButton) rootView.findViewById(R.id.fab_car);
         mFABDriver = (FloatingActionButton) rootView.findViewById(R.id.fab_driver);
+        //init animation
         mFabOpen = AnimationUtils.loadAnimation(context, R.anim.fab_open);
         mFabClose = AnimationUtils.loadAnimation(context, R.anim.fab_close);
         mRotateForward = AnimationUtils.loadAnimation(context, R.anim.rotate_forward);
         mRotateBackward = AnimationUtils.loadAnimation(context, R.anim.rotate_backward);
     }
 
+    /**
+     * set listener
+     *
+     * @param onClickListener - to trigger activity
+     */
     public void setOnClickListeners(View.OnClickListener onClickListener) {
         mFABCar.setOnClickListener(onClickListener);
         mFABDriver.setOnClickListener(onClickListener);
         mFAB.setOnClickListener(onClickListener);
     }
 
+    /**
+     * remove listeners
+     */
     public void removeOnClickListeners() {
         mFABCar.setOnClickListener(null);
         mFABDriver.setOnClickListener(null);
         mFAB.setOnClickListener(null);
     }
 
+
+    /**
+     * set FAB animation
+     */
     public void animateFAB() {
         if (isFabOpen) {
             mFAB.startAnimation(mRotateBackward);

@@ -7,6 +7,9 @@
 package com.vsevolod.megakittest.model;
 
 import com.vsevolod.megakittest.constant.Constants;
+import com.vsevolod.megakittest.util.MyDateUtil;
+
+import java.util.UUID;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -17,12 +20,13 @@ import io.realm.annotations.PrimaryKey;
  * usevalad.uladzimiravich@gmail.com
  */
 
-public class Driver extends RealmObject implements Model {
+public class Driver extends RealmObject{
     @PrimaryKey
-    private long uid;
+    private String uid;
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private String date;
     private RealmList<Car> cars;
 
     public Driver(String firstName, String lastName, String phoneNumber, RealmList<Car> cars) {
@@ -30,50 +34,51 @@ public class Driver extends RealmObject implements Model {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.cars = cars;
+        this.uid = UUID.randomUUID().toString();
+        this.date = MyDateUtil.getSearchDate();
     }
 
     public Driver(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.uid = UUID.randomUUID().toString();
+        this.date = MyDateUtil.getSearchDate();
     }
 
     /**
      * Realm needs a public constructor with no arguments
      */
     public Driver() {
+        this.uid = UUID.randomUUID().toString();
+        this.date = MyDateUtil.getSearchDate();
     }
 
-    public long getId() {
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getId() {
         return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public int getDataType() {
-        return Constants.DATA_TYPE_DRIVER;
     }
 }
