@@ -33,7 +33,7 @@
     <string name="submit">Submit</string>
     <string name="fill_field">Fill in the field</string>
     <string name="number_format">+380XXXXXXXXX</string>
-    <string name="nuber_to_long">Номер слишком длинный</string>
-    <string name="nuber_to_short">Номер слишком короткий</string>
+    <string name="number_to_long">Number is too long</string>
+    <string name="number_to_short">Number is too short</string>
     <string name="ukraine_code">+380</string>
 </resources>

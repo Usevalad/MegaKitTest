@@ -42,12 +42,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
-        android:ems="10"
         android:hint="@string/car_model"
-        android:inputType="textPersonName"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/car_body_type"
@@ -59,8 +55,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
         android:hint="@string/car_body_type"
-        android:inputType="textPersonName"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:inputType="textPersonName" />
 
     <ImageButton
         android:id="@+id/color_button"

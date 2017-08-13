@@ -6,12 +6,10 @@
 
 package com.vsevolod.megakittest.model;
 
-import com.vsevolod.megakittest.constant.Constants;
 import com.vsevolod.megakittest.util.MyDateUtil;
 
 import java.util.UUID;
 
-import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -20,23 +18,13 @@ import io.realm.annotations.PrimaryKey;
  * usevalad.uladzimiravich@gmail.com
  */
 
-public class Driver extends RealmObject{
+public class Driver extends RealmObject {
     @PrimaryKey
     private String uid;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String date;
-    private RealmList<Car> cars;
-
-    public Driver(String firstName, String lastName, String phoneNumber, RealmList<Car> cars) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.cars = cars;
-        this.uid = UUID.randomUUID().toString();
-        this.date = MyDateUtil.getSearchDate();
-    }
 
     public Driver(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;

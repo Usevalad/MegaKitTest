@@ -71,6 +71,7 @@ public class CarView {
 
     /**
      * to read car-object
+     *
      * @param car - car-object
      */
     public void showCar(Car car) {
@@ -99,6 +100,7 @@ public class CarView {
 
     /**
      * update existing or create new car-object
+     *
      * @param car - car-object
      */
     public void updateOrCreateCar(Car car) {
@@ -169,7 +171,7 @@ public class CarView {
         if (mManufacturerEditText.getError() == null
                 && mModelEditText.getError() == null
                 && mBodyTypeEditText.getError() == null) {
-            mUri = mUri != null ? mUri : Constants.URI;
+            mUri = mUri != null ? mUri : Constants.URI;  //if uri == null -> set random car uri
             saveCar(onFieldsValidatedListener, manufacturer, model, bodyType, mColor);
         }
     }

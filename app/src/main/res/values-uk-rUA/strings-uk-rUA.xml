@@ -1,0 +1,37 @@
+<!--
+  ~ Copyright (c) 2017.
+  ~  Student Vsevolod
+  ~  usevalad.uladzimiravich@gmail.com
+  -->
+
+<resources>
+    <string name="app_name">MegaKitTest</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="driver_full_name">Ім\'я: %1$s %2$s</string>
+    <string name="driver_first_name_arg">Ім\'я: %1$s</string>
+    <string name="driver_last_name_arg">Фамілія: %1$s</string>
+    <string name="driver_phone_number_arg">Номер телефону: %1$s</string>
+    <string name="driver_first_name">Ім\'я:</string>
+    <string name="driver_last_name">Фамілія:</string>
+    <string name="driver_phone_number">Номер телефону:</string>
+    <string name="main_car_body_type">Тип кузову: %1$s</string>
+    <string name="car_body_type">Тип кузову</string>
+    <string name="main_car_model">Модель: %1$s</string>
+    <string name="car_model">Модель</string>
+    <string name="main_car_manufacturer">Виробник: %1$s</string>
+    <string name="car_manufacturer">Виробник</string>
+    <string name="cars_title">Автівки</string>
+    <string name="drivers_title">Водії</string>
+    <string name="delete_cars">Видалити всі автівки</string>
+    <string name="delete_drivers">Видалити всіх водіїв</string>
+    <string name="color">Колір</string>
+    <string name="object_deleted">%1$s %2$s видалено</string>
+    <string name="edit">Виправити</string>
+    <string name="delete">Видалити</string>
+    <string name="submit">Підтвердити</string>
+    <string name="fill_field">Заповніть поле</string>
+    <string name="number_format">+380XXXXXXXXX</string>
+    <string name="number_to_long">Номер занадто довгий</string>
+    <string name="number_to_short">Номер занадто короткий</string>
+    <string name="ukraine_code">+380</string>
+</resources>

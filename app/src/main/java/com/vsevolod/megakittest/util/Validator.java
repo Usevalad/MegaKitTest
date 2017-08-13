@@ -33,11 +33,11 @@ public final class Validator {
             editText.requestFocus();
             editText.setError(error);
         } else if (phoneNumber.length() > Constants.PHONE_NUMBER_LENGTH) {
-            String error = MyApplication.getContext().getString(R.string.nuber_to_long);
+            String error = MyApplication.getContext().getString(R.string.number_to_long);
             editText.requestFocus();
             editText.setError(error);
         } else if (phoneNumber.length() < Constants.PHONE_NUMBER_LENGTH) {
-            String error = MyApplication.getContext().getString(R.string.nuber_to_short);
+            String error = MyApplication.getContext().getString(R.string.number_to_short);
             editText.requestFocus();
             editText.setError(error);
         } else

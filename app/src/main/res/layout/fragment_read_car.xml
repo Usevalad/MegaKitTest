@@ -36,10 +36,7 @@
         android:layout_marginTop="6dp"
         android:inputType="textPersonName"
         android:text="@string/car_model"
-        android:textSize="18sp"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/car_body_type"
@@ -52,8 +49,7 @@
         android:layout_marginTop="6dp"
         android:inputType="textPersonName"
         android:text="@string/car_body_type"
-        android:textSize="18sp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textSize="18sp" />
 
     <ImageButton
         android:id="@+id/color_button"
